@@ -9,16 +9,6 @@ VERSION = (PROJECT_DIR / "hpacellseg" / "VERSION").read_text().strip()
 GITHUB_URL = "https://github.com/CellProfiling/HPA-Cell-Segmentation"
 DOWNLOAD_URL = f"{GITHUB_URL}/archive/master.zip"
 
-requirements = []
-try:
-    with open("requirements.txt", "r") as fd:
-        requirements = [l.strip() for l in fd.readlines()]
-except FileNotFoundError:
-    print("WARNING: missing requirements.txt.")
-
-requirements.append(
-    "pytorch_zoo@https://github.com/haoxusci/pytorch_zoo/archive/master.zip"
-)
 
 setup(
     name="hpacellseg",
@@ -34,7 +24,6 @@ setup(
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
     python_requires=">=3.6",
     dependency_links=[],
-    install_requires=requirements,
     include_package_data=True,
     zip_safe=False,
     classifiers=[
